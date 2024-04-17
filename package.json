@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ar-js-org/ar.js": "^3.4.5"
+  }
+}
