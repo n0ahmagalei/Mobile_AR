@@ -24,29 +24,39 @@ Follow these steps to start a local server using Python:
 2. Navigate to Your Project Directory
 * Change to the directory containing your project files using the cd command:
 
-'''bash
+```bash
 cd path/to/your/project
+```
 3. Start the HTTP Server
 * Run the following command in your command line interface:
 
 For Python 3.x:
 
-'''bash
-python3 -m http.server 8000
+```
+bash python3 -m http.server 8000
+```
+
 * This will start a server on port 8000. You can use any other free port by replacing 8000 with your preferred port number.
 
 For Python 2.x (if still in use):
 
-'''bash
-python -m SimpleHTTPServer 8000
+```
+bash python -m SimpleHTTPServer 8000
+```
+
 4. Access Your Server
 * Open a web browser and go to the following URL to access your project:
 
-'''arduino
-http://localhost:8000
-Troubleshooting
-Port Already in Use: If you see an error that the port is already in use, try a different port number by changing 8000 in the command to another port number, such as 8080.
-Firewall Issues: Ensure that your firewall is not blocking access to the chosen port.
-Additional Information
+```
+arduino http://localhost:8000
+```
+# Troubleshooting
+Port Already in Use:
+If you see an error that the port is already in use, try a different port number by changing 8000 in the command to another port number, such as 8080.
+
+Firewall Issues:
+Ensure that your firewall is not blocking access to the chosen port.
+
+Additional Information:
 This server is suitable for development and testing. For production environments, consider more robust server solutions like Apache or Nginx.
 
