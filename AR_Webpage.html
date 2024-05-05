@@ -3,16 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Message</title>
+    <title>AR Model and Media Showcase</title>
+    <style>
+        /* Basic styles for the entire page */
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1, h2, h3 { color: navy; } /* Header color styling */
+        ul { list-style-type: none; padding: 0; } /* Removes bullets and padding from lists */
+        li { padding: 5px; } /* Adds padding to list items for better readability */
+        #preview { margin-top: 20px; } /* Adds a margin above the preview area */
+        img, video { max-width: 100%; max-height: 400px; } /* Styles for images and videos to fit them within dimensions */
+        .preview-placeholder { font-style: italic; color: grey; } /* Style for placeholder text */
+    </style>
 </head>
 <body>
-    <h1 id="greeting">Loading...</h1>
+    <h1>AR Model and Media Showcase</h1>
+    <h2>Project Creators</h2>
+    <ul>
+        <li>Matt Acosta</li>
+        <li>Eric Escareno</li>
+        <li>Preston Hizon</li>
+        <li>Noah Magalei</li>
+    </ul>
+
+    <p>
+        Simple augmented reality application that hosts an HTML-based server on a web browser. 
+        This application scans a marker of our choosing then displays a 3D model on top of it. 
+        We are still currently working on physical interaction with the 3D model.
+    </p>
+
+    <h2>Features</h2>
+    <ul>
+        <li>Send out push notifications to alert users about new or related 3D models</li>
+        <li>Functional Website to showcase different models</li>
+        <li>Display a log of scanned QR codes and their related models</li>
+        <li>Set up a local host server</li>
+    </ul>
+
+    <h2>Upload Model or Media</h2>
+    <input type="file" id="fileInput" accept=".unity3d, .obj, .fbx, .blend, .jpg, .jpeg, .gif, .mp4" multiple>
+    <button onclick="previewMedia()">Upload and Preview</button>
+
+    <div id="preview"></div>
+
+    <h2>Model Description</h2>
+    <p>Description of the model...</p>
+    <p>Model made by <a href="https://socialmedia.com/SaulGoodman445">@SaulGoodman445</a></p>
+
+    <h3>Open Source Code</h3>
+    <a href="https://github.com/n0ahmagalei/Mobile_AR">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="height: 40px;">
+    </a>
 
     <script>
-        // Tester website for future use.
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('greeting').textContent = 'Hello';
-        });
+        function previewMedia() {
+            const fileInput = document.getElementById('fileInput');
+            const files = fileInput.files; // Gets all selected files
+            const previewArea = document.getElementById('preview');
+            previewArea.innerHTML = ''; // Clears the preview area
+
+            Array.from(files).forEach(file => { // Processes each file individually
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const fileType = file.type;
+                    const fileURL = e.target.result;
+
+                    if (fileType.includes('image')) { // Handles image files
+                        const img = document.createElement('img');
+                        img.src = fileURL;
+                        previewArea.appendChild(img);
+                    } else if (fileType.includes('video')) { // Handles video files
+                        const video = document.createElement('video');
+                        video.setAttribute('controls', '');
+                        video.src = fileURL;
+                        previewArea.appendChild(video);
+                    } else { // Handles other file types
+                        const placeholder = document.createElement('p');
+                        placeholder.textContent = 'Preview not available for this file type.';
+                        placeholder.className = 'preview-placeholder';
+                        previewArea.appendChild(placeholder);
+                    }
+                };
+                if (file.type.includes('image') or file.type.includes('video')) {
+                    reader.readAsDataURL(file); // Reads the file data as a URL
+                } else {
+                    // Immediately display a placeholder for non-image/video files
+                    const placeholder = document.createElement('p');
+                    placeholder.textContent = 'Preview not available for ' + file.name;
+                    placeholder.className = 'preview-placeholder';
+                    previewArea.appendChild(placeholder);
+                }
+            });
+        }
     </script>
 </body>
 </html>
