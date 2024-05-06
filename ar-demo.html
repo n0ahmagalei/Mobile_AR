@@ -24,25 +24,34 @@
     <button id="startButton">Start AR</button>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;' id="arScene">
         <a-marker preset="hiro">
-            <!-- Torus shape (donut) with continuous rotation animation -->
+            <!-- Torus shape (donut) with continuous rotation animation
             <a-torus position="0 0.5 0" radius="0.5" radius-tubular="0.05" 
                      material="color: blue;"
                      animation="property: rotation; to: 0 360 360; loop: true; dur: 10000; easing: linear">
             </a-torus>
+            -->
+            <a-entity gltf-model="url(Models/velociraptor.glb)" scale="5 5 5" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"></a-entity>
         </a-marker>
 
          <!-- Marker for letter A -->
          <a-marker preset="custom" type='pattern' url='markers/pattern-letterA.patt'>
+            <!--
             <a-sphere position="0 0.5 0" radius="0.25" color="red"
                       animation="property: rotation; to: 360 360 0; loop: true; dur: 8000; easing: linear">
             </a-sphere>
+            -->
+            <a-entity gltf-model="url(Models/forest_cat_3d_model_free.glb)" scale="0.1 0.1 0.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear"></a-entity>
         </a-marker>
         
         <!-- Marker for letter B -->
         <a-marker preset="custom" type='pattern' url='markers/pattern-letterB.patt'>
+
+            <!--
             <a-cylinder position="0 0.5 0" height="1" radius="0.3" color="green"
                         animation="property: rotation; to: 0 360 360; loop: true; dur: 10000; easing: linear">
             </a-cylinder>
+            -->
+            <a-entity gltf-model="url(Models/animated_rhinoceros_walking_animal_loop.glb)" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"></a-entity>
         </a-marker>
         
         <a-entity camera></a-entity>
