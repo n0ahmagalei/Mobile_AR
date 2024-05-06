@@ -7,6 +7,46 @@ The finalized product will be able to do the following along with everything els
 * Functional Website to showcase different models
 * Display a log of scanned QR codes and their related models
 * Set up a local host server
+  
+# Setting up the HTTPS Server with a Self-Signed SSL Certificate
+This guide is intended to show the end user how to generate a self-signed SSL certificate using SSL and run an HTTPS server using Node.js `http-server` module.
+
+## Prerequistes
+- [OpenSSL](https://www.openssl.org)
+- [Node.js](https://nodejs.org/en/download) and npm
+- `http-server` module. This is done by copy-pasting this line of code in your terminal:
+  ```
+  npm install -g http-server
+  ```
+  
+## Steps
+1. **Generate your SSL Certificate.**
+   Run this command in your respective terminal/command prompt:
+   ```
+   bash openssl req -x509 -newkey rsa:4096 -keyout key.perm -out cert.pem -days 365 -nodes
+   ```
+   This command generates a unique and self-signed SSL certificate (`cert.pem`) and a private key (`key.pem`) in your current directory.
+2. **Install `http-server`:**
+   If you haven't already iinstalled the `http-server` module globally, you can do so using npm:
+   ```
+   bash npm install -g http-server
+   ```
+3. **Start HTTPS Server.**
+   Run this command in order to start your HTTPS server:
+   ```
+   bash http-server -S -C cert.pem -K key.pem -p 8000
+   ```
+   What this command does is that it starts a HTTPS server on port 8000 using the generated SSL certificate (`cert.pem`) and a private key (`key.pem`).
+4.**Accessing the Server**
+   Once the server is up and running, you are able to access it via a web browser or make requests to it programmatically.
+
+   Open your web browser and navigate too the following address: `https://localhost:8000` in order to access the server. Since this is currently using a self-signed certificate, your respective browser of choice may display a warning message about an insecure connection. Ignore this message and proceed so that you can properly access the page.
+
+   If you're making requests programatically, make sure that you are able to handle SSL certificate verifications appropiately in your code.
+
+## Notes
+- Setup is currenly under development purposes and local testing at the moment. For production environments, I reccomend using a valid SSL certificate that's signed by a trusted Certificate Authority (CA).
+- Always make sure that the security of your private key (`key.pem`) and SSL certifcate (`cert.pem`) is secure. Do not share them publically.
 
 # Local Server Setup Guide
 For development and testing of web applications, especially those that use technologies requiring server hosting (like AR.js), setting up a local server can be beneficial. This guide shows you how to easily run a local server using Python's built-in HTTP server module.
