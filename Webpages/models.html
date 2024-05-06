@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Models Info - AR Demo</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
     <header>
@@ -15,15 +16,29 @@
     <main id="models-info">
         <p>Here you can find information about the 3D models used in our AR demos.</p>
         <ul>
-            <li>Model 1: <a href="Models/model1.glb">Download</a></li>
-            <li>Model 2: <a href="Models/model2.glb">Download</a></li>
+            <li>Rhinoceros:</li>
+            <p>Rhinoceroses are large, herbivorous mammals identified by their characteristic horned snouts.</p>
+            <model-viewer src="Models/animated_rhinoceros_walking_animal_loop.glb" alt="Rhinoceros" auto-rotate camera-controls></model-viewer>
+
+            <li>Forest Cat:</li>
+            <p>The forest cat is a wild feline found in various forests around the world.</p>
+            <model-viewer src="Models/forest_cat_3d_model_free.glb" alt="Forest Cat" auto-rotate camera-controls></model-viewer>
+
+            <li>Velociraptor:</li>
+            <p>Velociraptor is a genus of dromaeosaurid theropod dinosaurs that lived approximately 75 to 71 million years ago during the later part of the Cretaceous Period.</p>
+            <model-viewer src="Models/velociraptor.glb" alt="Velociraptor" auto-rotate camera-controls></model-viewer>   
+            
+            <li>Dolphin Fossil:</li>
+            <p>The dolphin fossil reveals that dolphins have been evolving for over 50 million years, with ancient species showcasing unique adaptations like long snouts and specialized teeth.</p>
+            <model-viewer src="Models/dauphin.glb" alt="Dolphin Fossil" auto-rotate camera-controls></model-viewer>   
+            
             <!-- Add more models as needed -->
         </ul>
         <button onclick="window.history.back()">Back</button>
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <p>&copy; 2024 ARChive. All rights reserved.</p>
     </footer>
 </body>
 </html>
