@@ -4,20 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Directory</title>
+    <title>AR Demo Server</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Welcome to the AR Demo Directory</h1>
+            <h1>AR Demo Server</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#models-info">3D Models Info</a></li>
+                </ul>
+            </nav>
         </header>
         <main>
-            <h2>Available Files:</h2>
-            <ul>
-                <li><a href="ar-demo.html">AR Demo</a></li>
-                <!-- Add more links as needed -->
-            </ul>
+            <section id="home">
+                <h2>Welcome to the AR Demo Server</h2>
+                <ul>
+                    <li><a href="ar-demo.html">AR Demo</a></li>
+                </ul>
+            </section>
+
+            <section id="about-us">
+                <h2>About Us</h2>
+                <p>Welcome to our AR Demo Server. We specialize in providing interactive augmented reality experiences. Our team is dedicated to creating innovative solutions for education, entertainment, and business applications.</p>
+            </section>
+
+            <section id="contact-us">
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+
+            <section id="models-info">
+                <h2>3D Models Info</h2>
+                <p>Here you can find information about the 3D models used in our AR demos.</p>
+                <ul>
+                    <li>Model 1: <a href="Models/model1.glb">Download</a></li>
+                    <li>Model 2: <a href="Models/model2.glb">Download</a></li>
+                    <!-- Add more models as needed -->
+                </ul>
+            </section>
         </main>
         <footer>
             <p>&copy; 2024 Your Company Name. All rights reserved.</p>
